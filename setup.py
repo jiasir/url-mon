@@ -1,7 +1,5 @@
 __author__ = 'jiasir'
 import sys
-import os
-import shutil
 
 try:
     from setuptools import setup, find_packages
@@ -13,10 +11,10 @@ except ImportError:
 
 setup(name='url-mon',
       version='0.0.1',
-      description='Deny IPs from Queues',
+      description='URL Monitor',
       author='jiasir',
       author_email='jiasir@icloud.com',
-      url='https://github.com/jiasir/sys-management-scripts/',
+      url='https://github.com/jiasir/url-mon/',
       license='MIT License',
       install_requires=[],
       packages=find_packages(),
