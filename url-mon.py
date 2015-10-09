@@ -15,9 +15,11 @@ url = sys.argv[1]
 p = sys.argv[2:]
 
 logger = logging.getLogger('url-mon')
-logging.basicConfig(filename='url-mon.log', level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='url-mon.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 hostname = socket.gethostname()
+
 
 def notify_msg(phone, msg):
     return urllib2.urlopen('http://10.10.11.241/sms.php?phone={}&content={}'.format(phone, msg), timeout=3)
@@ -39,8 +41,7 @@ def get_site_status(url):
 
 if __name__ == '__main__':
     i = 0
-    while i < 3:
+    while True:
         i += 1
-        print i
         get_site_status(url)
-        time.sleep(300)
+        time.sleep(1)
