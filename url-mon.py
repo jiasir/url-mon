@@ -2,7 +2,7 @@
 __author__ = 'jiasir'
 
 """Usage:
-    python url-mon.py url phone[ phone...]
+    python url-mon.py http://www.example.com phone[ phone...]
 """
 
 import sys
@@ -30,11 +30,14 @@ def get_site_status(url):
         urlfile = urllib2.urlopen(url, timeout=6)
         status_code = urlfile.code
         x_served_by = urlfile.info().getheader('X-Served-By')
-        logger.info('{code} {link} {x_served_by}'.format(code=status_code, link=url, x_served_by=x_served_by))
+        request = '{code} {link} {x_served_by}'.format(code=status_code, link=url, x_served_by=x_served_by)
+        logger.info(request)
+        print request
         if status_code in (200, 302):
             return 'up', urlfile
     except Exception as e:
         logger.error(e)
+        print e
         [notify_msg(i, '{}%20cant%20access%20{}'.format(hostname, url[8:])) for i in p]
 
     return 'down', None

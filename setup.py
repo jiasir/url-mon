@@ -10,7 +10,7 @@ except ImportError:
     sys.exit(1)
 
 setup(name='url-mon',
-      version='0.0.1',
+      version='0.0.2',
       description='URL Monitor',
       author='jiasir',
       author_email='jiasir@icloud.com',
@@ -19,6 +19,6 @@ setup(name='url-mon',
       install_requires=[],
       packages=find_packages(),
       scripts=[
-          'url-mon.py',
+          'url-mon',
       ],
       data_files=[],)
